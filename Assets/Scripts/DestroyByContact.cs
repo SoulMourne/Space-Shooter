@@ -9,8 +9,8 @@ public class DestroyByContact : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Boundary")
-        {
-            Instantiate(explosion, transform.position, transform.rotation);
+        { 
+            Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
             if (other.tag == "Player")
                 Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);
