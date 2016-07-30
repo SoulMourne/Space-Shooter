@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GUIText scoreText;
     public GUIText restartText;
     public GUIText gameOverText;
+    public GUIText exitText;
 
     private bool gameOver;
     private bool restart;
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+        exitText.text = "Press 'Escape' to Exit.";
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnWaves());
@@ -38,6 +40,11 @@ public class GameController : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
